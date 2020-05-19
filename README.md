@@ -5,7 +5,8 @@
 
 
 
-Validation rules in forms fields using **Yup** (https://github.com/jquense/yup)
+Validation rules in form fields using **Yup** (https://github.com/jquense/yup)
+URL  video:  https://www.youtube.com/watch?v=a94FOvaBomQ&list=PLC3y8-rFHvwiPmFbtzEWjESkqBVDbdgGu&index=1
 
 
 In the project directory, you can run:
