@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 
 const initialValues={
@@ -32,12 +33,19 @@ const  validate = values =>{
     return errors
 }
 
+const validationSchema = Yup.object({
+    name: Yup.string().required('Required'),
+    email: Yup.string().email('Invalid email format').required('Required'),
+    channel: Yup.string().required('Required')
+})
+
 function YouTubeForm() {
 
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate
+        validationSchema
+        //validate
     })
 
     console.log('Visited fields', formik.touched)
@@ -55,7 +63,10 @@ function YouTubeForm() {
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
                 />
-                {formik.errors.name && <div className="error">{formik.errors.name}</div>}
+                {   formik.touched.name &&  formik.errors.name ?  
+                        (<div className="error">{formik.errors.name}</div>)
+                        :null
+                }
             </div>
 
             <div className='form-control'>
@@ -68,7 +79,10 @@ function YouTubeForm() {
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
                 />
-                {formik.errors.email && <div className="error">{formik.errors.email}</div>}
+                {   formik.touched.email &&  formik.errors.email ?  
+                        (<div className="error">{formik.errors.email}</div>)
+                        :null
+                }
             </div>
 
             <div className='form-control'>
@@ -81,7 +95,10 @@ function YouTubeForm() {
                     onBlur={formik.handleBlur}
                     value={formik.values.channel}
                 />
-                {formik.errors.channel && <div className="error">{formik.errors.channel}</div>}
+                {   formik.touched.channel &&  formik.errors.channel ?  
+                        (<div className="error">{formik.errors.channel}</div>)
+                        :null
+                }
             </div>
 
             <button type="submit">Submit</button>

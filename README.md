@@ -4,6 +4,10 @@
 ![Image of Yaktocat](simple-form.png)
 
 
+
+Validation rules in forms fields using **Yup** (https://github.com/jquense/yup)
+
+
 In the project directory, you can run:
 
 ### `npm start`
